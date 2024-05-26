@@ -1,0 +1,56 @@
+{
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "build"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2021",
+    "lib": [
+      "ES2021"
+      // "ESNext"
+    ],
+    // https://stackoverflow.com/a/54277766
+    "types": [], // "node",
+    "incremental": true,
+    /* Additional outputs */
+    "declaration": true,
+    "sourceMap": true,
+    /* .d.ts lib files */
+    "skipLibCheck": false, // Nest CLI default: true
+    "skipDefaultLibCheck": false,
+    /* Decorators */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    /* Import */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": true,
+    /* File system */
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    /* Linting */
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": true,
+    // Checked by ESLint
+    "noUnusedLocals": false,
+    /* Formatting */
+    "removeComments": false
+  },
+  /* https://typestrong.org/ts-node/docs/options */
+  "ts-node": {
+    "transpileOnly": true,
+    "require": ["tsconfig-paths/register"]
+  }
+}
