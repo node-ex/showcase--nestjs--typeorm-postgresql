@@ -69,6 +69,7 @@ module.exports = {
           { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
         ],
         // Checked by @typescript-eslint/no-unused-vars
+        '@typescript-eslint/prefer-nullish-coalescing': 'off',
         'no-unused-vars': 'off',
       },
     },
