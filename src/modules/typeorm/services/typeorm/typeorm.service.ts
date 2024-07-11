@@ -1,4 +1,7 @@
-import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
+import {
+  // InjectDataSource,
+  InjectRepository,
+} from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { CoffeeEntity } from '@/modules/typeorm/entities/coffee.entity';
@@ -8,7 +11,8 @@ import { Coffee } from '@/modules/typeorm/types/coffee.interface';
 @Injectable()
 export class TypeormService {
   constructor(
-    @InjectDataSource() private dataSource: DataSource,
+    // @InjectDataSource()
+    private dataSource: DataSource,
     @InjectRepository(CoffeeEntity)
     private readonly coffeeRepository: Repository<CoffeeEntity>,
   ) {}
