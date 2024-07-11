@@ -4,6 +4,7 @@ import { HelloWorldModule } from '@/hello-world/hello-world.module';
 import { coreConfig, validateCoreEnvVars } from '@/core/configs/core.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeormModule } from './typeorm/typeorm.module';
+import { CoffeeEntity } from '@/typeorm/entities/coffee.entity';
 
 @Module({
   imports: [
@@ -24,7 +25,7 @@ import { TypeormModule } from './typeorm/typeorm.module';
         username: injectedCoreConfig.db.username,
         password: injectedCoreConfig.db.password,
         database: injectedCoreConfig.db.database,
-        entities: [],
+        entities: [CoffeeEntity],
         synchronize: injectedCoreConfig.db.synchronize,
       }),
       inject: [coreConfig.KEY],

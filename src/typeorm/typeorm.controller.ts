@@ -9,4 +9,14 @@ export class TypeormController {
   executeRawQuery() {
     return this.typeormService.executeRawQuery();
   }
+
+  @Get('coffee/transform')
+  transform() {
+    return this.typeormService.transform();
+  }
+
+  @Get('coffee')
+  findAll() {
+    return this.typeormService.findAll();
+  }
 }
