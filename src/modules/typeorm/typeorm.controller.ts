@@ -1,4 +1,4 @@
-import { TypeormService } from '@/typeorm/services/typeorm/typeorm.service';
+import { TypeormService } from '@/modules/typeorm/services/typeorm/typeorm.service';
 import { Controller, Get } from '@nestjs/common';
 
 @Controller('typeorm')

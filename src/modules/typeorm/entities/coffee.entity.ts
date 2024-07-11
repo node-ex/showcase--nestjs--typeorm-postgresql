@@ -1,4 +1,4 @@
-import { Coffee } from '@/typeorm/types/coffee.interface';
+import { Coffee } from '@/modules/typeorm/types/coffee.interface';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({

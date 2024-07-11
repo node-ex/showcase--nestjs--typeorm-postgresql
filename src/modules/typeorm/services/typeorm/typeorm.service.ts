@@ -1,9 +1,9 @@
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
-import { CoffeeEntity } from '@/typeorm/entities/coffee.entity';
+import { CoffeeEntity } from '@/modules/typeorm/entities/coffee.entity';
 import { instanceToPlain } from 'class-transformer';
-import { Coffee } from '@/typeorm/types/coffee.interface';
+import { Coffee } from '@/modules/typeorm/types/coffee.interface';
 
 @Injectable()
 export class TypeormService {

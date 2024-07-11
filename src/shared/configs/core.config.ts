@@ -1,4 +1,4 @@
-import { validateEnvVars } from '@/core/configs/validate.utils';
+import { validateEnvVars } from '@/shared/configs/validate.utils';
 import { registerAs } from '@nestjs/config';
 import { z, ZodType } from 'zod';
 

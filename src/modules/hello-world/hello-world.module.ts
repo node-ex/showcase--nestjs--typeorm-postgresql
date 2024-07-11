@@ -1,5 +1,5 @@
-import { HelloWorldController } from '@/hello-world/hello-world.controller';
-import { HelloWorldService } from '@/hello-world/hello-world.service';
+import { HelloWorldController } from '@/modules/hello-world/hello-world.controller';
+import { HelloWorldService } from '@/modules/hello-world/hello-world.service';
 import { Module } from '@nestjs/common';
 
 @Module({

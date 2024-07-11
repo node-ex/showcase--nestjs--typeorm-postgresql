@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from '@/app.module';
+import { CoreModule } from '@/modules/core/core.module';
 import {
   ConfigModule,
   // ConfigService
@@ -7,7 +7,7 @@ import {
 
 async function bootstrap() {
   await ConfigModule.envVariablesLoaded;
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(CoreModule);
 
   // const config = app.get(ConfigService);
   // console.log(config.get('core.db.synchronize'));
