@@ -10,4 +10,4 @@ while [ "$(docker inspect --format='{{.State.Health.Status}}' "$POSTGRES_CONTAIN
     sleep 5
 done
 
-# npm run migrations:run
+npm run typeorm-ds -- migration:run
