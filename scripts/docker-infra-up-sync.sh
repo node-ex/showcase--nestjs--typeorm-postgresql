@@ -2,7 +2,7 @@
 
 set -e
 
-./scripts/docker-infra-run.sh --detach $@
+./scripts/docker-infra-up.sh --detach $@
 
 POSTGRES_CONTAINER_NAME="showcase--postgres"
 
