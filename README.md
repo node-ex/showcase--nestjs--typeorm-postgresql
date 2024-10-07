@@ -1,7 +1,12 @@
-# showcase--nestjs--configuration
+# showcase--nestjs--typeorm-postgresql
 
-1. Set up by copying `.env.template` as `.env`.
-2. Enable "REST Client" extension in VSCode and run the requests in `./api/requests.http` file.
+## Showcase
+
+1. Run `pnpm install`
+2. Copy `.env.template` as `.env`
+3. Run `./scripts/docker-infra-up-sync.sh` (or inspect it and run commands manually)
+4. Run `npm run dev`
+5. Enable "REST Client" extension in VSCode and run the requests in `./api/requests.http` file
 
 ## Migrations
 
@@ -13,14 +18,14 @@ npm run typeorm -- --help
 npm run typeorm -- migration:create ./src/migrations/<migration-name>
 
 # Generate a new migration based on required changes
-npm run typeorm -- migration:generate ./src/migrations/<migration-name>
+npm run typeorm-ds -- migration:generate ./src/migrations/<migration-name>
 
 # Run migrations
-npm run typeorm -- migration:run
+npm run typeorm-ds -- migration:run
 
 # Revert migrations
-npm run typeorm -- migration:revert
+npm run typeorm-ds -- migration:revert
 
 # Show status of all migrations
-npm run typeorm -- migration:show
+npm run typeorm-ds -- migration:show
 ```
