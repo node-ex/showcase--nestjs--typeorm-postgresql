@@ -1,5 +1,5 @@
 import { TypeormService } from '@/modules/typeorm/services/typeorm/typeorm.service';
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 
 @Controller('typeorm')
 export class TypeormController {
@@ -18,5 +18,10 @@ export class TypeormController {
   @Get('coffee')
   findAll() {
     return this.typeormService.findAll();
+  }
+
+  @Post('coffee')
+  create() {
+    return this.typeormService.create();
   }
 }

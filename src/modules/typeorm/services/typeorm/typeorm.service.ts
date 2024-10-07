@@ -42,4 +42,12 @@ export class TypeormService {
   findAll() {
     return this.coffeeRepository.find();
   }
+
+  create() {
+    return this.coffeeRepository.save({
+      name: 'some-coffee',
+      brand: 'some-brand',
+      flavors: ['some-flavor-1', 'some-flavor-2'],
+    });
+  }
 }
