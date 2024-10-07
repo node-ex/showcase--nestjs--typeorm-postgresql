@@ -18,7 +18,9 @@ async function getDataSource() {
     logger: false,
   });
   const dataSourceService = app.get(DataSourceService);
-  const dataSource = new DataSource(dataSourceService.getDataSourceOptions());
+  const dataSource = new DataSource(
+    dataSourceService.getDataSourceOptions(true),
+  );
 
   return dataSource;
 }

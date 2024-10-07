@@ -12,7 +12,7 @@ import { configModuleImports } from '@/shared/imports/config-module.imports';
     TypeOrmModule.forRootAsync({
       imports: [DataSourceModule],
       useFactory: (dataSourceService: DataSourceService) =>
-        dataSourceService.getDataSourceOptions(),
+        dataSourceService.getTypeOrmModuleOptions(),
       inject: [DataSourceService],
     }),
     HelloWorldModule,

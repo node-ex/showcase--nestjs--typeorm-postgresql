@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { coreConfig } from '@/shared/configs/core.config';
 import { ConfigType } from '@nestjs/config';
 import path from 'path';
-import { CoffeeEntity } from '@/modules/typeorm/entities/coffee.entity';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 @Injectable()
 export class DataSourceService {
@@ -12,7 +12,14 @@ export class DataSourceService {
     private injectedCoreConfig: ConfigType<typeof coreConfig>,
   ) {}
 
-  getDataSourceOptions(): DataSourceOptions {
+  getTypeOrmModuleOptions(): TypeOrmModuleOptions {
+    return {
+      ...this.getDataSourceOptions(),
+      autoLoadEntities: true,
+    };
+  }
+
+  getDataSourceOptions(loadEntitiesUsingPaths = false): DataSourceOptions {
     return {
       type: 'postgres',
       host: this.injectedCoreConfig.db.host,
@@ -20,10 +27,29 @@ export class DataSourceService {
       username: this.injectedCoreConfig.db.username,
       password: this.injectedCoreConfig.db.password,
       database: this.injectedCoreConfig.db.database,
-      // Its not ok to use paths here, because JS code would import TS code
-      // entities: [path.resolve(__dirname, '..', '..', '..', 'typeorm', 'entities', '*.ts')],
-      entities: [CoffeeEntity],
-      // Its ok to use paths here, because migrations are run using ts-node
+      /*
+       * This only properly works when running TypeORM CLI commands
+       * using ts-node. When running NestJS app using NestJS CLI, JS code would
+       * import uncompiled TS code of entities.
+       */
+      ...(loadEntitiesUsingPaths && {
+        entities: [
+          path.resolve(
+            __dirname,
+            '..',
+            '..',
+            '..',
+            '..',
+            'modules',
+            '**',
+            '*.entity.ts',
+          ),
+        ],
+      }),
+      /*
+       * Its ok to use paths here, because migrations are run via
+       * TypeORM CLI commands using ts-node
+       */
       migrations: [
         path.resolve(__dirname, '..', '..', '..', '..', 'migrations', '*.ts'),
       ],
